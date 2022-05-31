@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import { mapActions } from 'vuex'
+import { IpcChannels } from '../../../constants'
 
 export default Vue.extend({
   name: 'FtListVideo',
@@ -150,6 +151,10 @@ export default Vue.extend({
           value: 'openYoutube'
         },
         {
+          label: this.$t('Video.Open in new window'),
+          value: 'openNewWindow'
+        },
+        {
           label: this.$t('Video.Open YouTube Embedded Player'),
           value: 'openYoutubeEmbed'
         },
@@ -293,6 +298,11 @@ export default Vue.extend({
         case 'openYoutube':
           this.openExternalLink(this.youtubeUrl)
           break
+        case 'openNewWindow':
+          const url = this.youtubeUrl;
+          const { ipcRenderer } = require('electron')
+          ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, { windowStartupUrl: url});
+          break;
         case 'copyYoutubeEmbed':
           navigator.clipboard.writeText(this.youtubeEmbedUrl)
           this.showToast({

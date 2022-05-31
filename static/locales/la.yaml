@@ -351,6 +351,7 @@ Video:
   Video has been marked as watched: ''
   Video has been removed from your history: ''
   Open in YouTube: ''
+  Open in new window: 'In fenestra nova aperiere'
   Copy YouTube Link: ''
   Open YouTube Embedded Player: ''
   Copy YouTube Embedded Player Link: ''
@@ -489,4 +490,4 @@ Canceled next video autoplay: ''
 Yes: ''
 No: 'nullum'
 More: plus
-Open New Window: aperiere fenestram novum
+Open New Window: aperiere fenestram novam
